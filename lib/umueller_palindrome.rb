@@ -1,6 +1,6 @@
 require "umueller_palindrome/version"
 
-class String
+module UmuellerPalindrome
 
 	#Returns true for a palindrome, false otherwise.
   def palindrome?
@@ -11,6 +11,14 @@ class String
 
     # Returns content for palindrome testing.
     def processed_content
-      self.scan(/[a-z]/i).join.downcase
+      self.to_s.scan(/[a-z0-9]/i).join.downcase
     end
+end
+
+class String
+	include UmuellerPalindrome
+end
+
+class Integer
+	include UmuellerPalindrome
 end
